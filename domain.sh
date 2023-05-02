@@ -7,9 +7,9 @@ apt install socat -y
 apt install jq curl -y
 sub=$(</dev/urandom tr -dc a-z | head -c4)
 clear
-DOMAIN=jawa.software
-SUB_DOMAIN=${sub}.jawa.software
-CF_ID=resaananta42@gmail.com
+DOMAIN=zeavpn.com
+SUB_DOMAIN=${sub}.zeavpn.com
+CF_ID=pribadi.no99@gmail.com
 CF_KEY=821d599ff7aeafbf73230ba3ac2f238f438f3
 set -euo pipefail
 IP=$(curl -sS ifconfig.me);
