@@ -21,6 +21,6 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 ✅ XRAY TROJAN TCP XTLS 443<br>
 ✅ XRAY TROJAN TCP TLS 443<br>
 <br>
-Minat? PM ane aja :<a href="https://t.me/freetunnelproject" target=”_blank”><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=Telegram&label=Telegram&message=Click%20Here&color=blue"></a><br>
+Need Install ? PM Admin:<a href="https://t.me/freetunnelproject" target=”_blank”><img src="https://img.shields.io/static/v1?style=for-the-badge&logo=Telegram&label=Telegram&message=Click%20Here&color=blue"></a><br>
 10k/bulan | free trial 3 hari
 
