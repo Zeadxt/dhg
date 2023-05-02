@@ -1,1 +1,1 @@
-echo "ga ada update bang"
+echo "LAST VERSION SCRIPT NOT UPDATE"
