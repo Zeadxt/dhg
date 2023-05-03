@@ -6,7 +6,7 @@ yell='\e[1;33m'
 tyblue='\e[1;36m'
 NC='\e[0m'
 COLOR1='\033[0;35m'
-URL="raw.githubusercontent.com/Zeastore/dhg/main"
+URL="https://raw.githubusercontent.com/Zeastore/dhg/main"
 
 localip=$(hostname -I | cut -d\  -f1)
 hst=( `hostname` )
@@ -106,7 +106,7 @@ mkdir -p /var/lib/scrz-prem >/dev/null 2>&1
 echo "IP=" >> /var/lib/scrz-prem/ipvps.conf
 
 
-wget -q https://${URL}/tools.sh;chmod +x tools.sh;./tools.sh
+wget -q ${URL}/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
 
@@ -168,10 +168,10 @@ echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://${URL}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget ${URL}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 sleep 2
 clear
-wget https://${URL}/nginx-ssl.sh && chmod +x nginx-ssl.sh && ./nginx-ssl.sh
+wget ${URL}/nginx-ssl.sh && chmod +x nginx-ssl.sh && ./nginx-ssl.sh
 
 
 #install ssh ovpn
@@ -180,14 +180,14 @@ echo -e "$green      Install Websocket              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://${URL}/main/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget ${URL}/main/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 
 #exp
 cd /usr/bin
-wget -O xp "https://${URL}/xp.sh"
+wget -O xp "${URL}/xp.sh"
 chmod +x xp
 sleep 1
-wget -q -O /usr/bin/notramcpu "https://${URL}/Menu/Lain/notramcpu" && chmod +x /usr/bin/notramcpu
+wget -q -O /usr/bin/notramcpu "${URL}/Menu/Lain/notramcpu" && chmod +x /usr/bin/notramcpu
 
 cd
 #remove log 
@@ -198,9 +198,9 @@ rm -f /root/insshws.sh
 rm -f /root/xraymode.sh
 
 #xray
-wget -q -O ins-xray.sh https://${URL}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget -q -O ins-xray.sh ${URL}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 sleep 1
-wget -q -O senmenu.sh https://${URL}/senmenu.sh && chmod +x senmenu.sh && ./senmenu.sh
+wget -q -O senmenu.sh ${URL}/senmenu.sh && chmod +x senmenu.sh && ./senmenu.sh
 ### Pasang SlowDNS
 
 function install_slowdns(){
