@@ -55,7 +55,7 @@ domen=`cat /etc/xray/domain`
 else
 domen=`cat /etc/v2ray/domain`
 fi
-nsdomain=$(cat /etc/xray/nsdomain)
+nsdomain=$(cat /etc/xray/dns)
 pub2=$(cat /etc/slowdns/server.pub)
 portsshws=`cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
 wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
