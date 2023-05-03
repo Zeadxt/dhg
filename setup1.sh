@@ -113,8 +113,6 @@ clear
 clear
 
 ### Tambah domain
-
-function add_domain() {
     echo "`cat /etc/banner`" | lolcat
     echo -e "${red}    ♦️${NC} ${green} CUSTOM SETUP DOMAIN VPS     ${NC}"
     echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
@@ -139,7 +137,7 @@ function add_domain() {
     echo -e "${GREEN}Done!${NC}"
     sleep 2
     clear
-}
+
 
 
 
@@ -203,13 +201,12 @@ sleep 1
 wget -q -O senmenu.sh ${URL}/senmenu.sh && chmod +x senmenu.sh && ./senmenu.sh
 ### Pasang SlowDNS
 
-function install_slowdns(){
     print_install "Memasang modul SlowDNS Server"
     wget -q -O /tmp/nameserver "${URL}slow/nameserver" >/dev/null 2>&1
     chmod +x /tmp/nameserver
     bash /tmp/nameserver | tee /root/install.log
     print_success "SlowDNS"
-}
+
 #cronjob
 #echo "30 * * * * root removelog" >> /etc/crontab
 
