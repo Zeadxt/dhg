@@ -5,12 +5,13 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 apt install update && apt upgrade -y
 apt install socat -y
 apt install jq curl -y
+echo "SILAHKAN MASUKKAN 4 KARAKTER UNIK"
 sub=$(</dev/urandom tr -dc a-z | head -c4)
 clear
-DOMAIN=zeavpn.com
-SUB_DOMAIN=${sub}.zeavpn.com
+DOMAIN=zeaking.xyz
+SUB_DOMAIN=${sub}.zeaking.xyz
 CF_ID=pribadi.no99@gmail.com
-CF_KEY=821d599ff7aeafbf73230ba3ac2f238f438f3
+CF_KEY=e706e0ce65fb5c6e233c233e6e2e6614d4aec
 set -euo pipefail
 IP=$(curl -sS ifconfig.me);
 echo "Updating DNS for ${SUB_DOMAIN}..."
