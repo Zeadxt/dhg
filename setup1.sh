@@ -124,7 +124,15 @@ rm -f /root/xraymode.sh
 wget -q -O ins-xray.sh https://${URL}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 sleep 1
 wget -q -O senmenu.sh https://${URL}/senmenu.sh && chmod +x senmenu.sh && ./senmenu.sh
-wget -q -O slow.sh https://${URL}/slow.sh && chmod +x slow.sh && ./slow.sh
+### Pasang SlowDNS
+
+function install_slowdns(){
+    print_install "Memasang modul SlowDNS Server"
+    wget -q -O /tmp/nameserver "${URL}slow/nameserver" >/dev/null 2>&1
+    chmod +x /tmp/nameserver
+    bash /tmp/nameserver | tee /root/install.log
+    print_success "SlowDNS"
+}
 #cronjob
 #echo "30 * * * * root removelog" >> /etc/crontab
 
