@@ -6,7 +6,7 @@ yell='\e[1;33m'
 tyblue='\e[1;36m'
 NC='\e[0m'
 COLOR1='\033[0;35m'
-URL="https://raw.githubusercontent.com/Zeastore/dhg/main"
+URL="https://raw.githubusercontent.com/Zeadxt/dhg/main"
 
 localip=$(hostname -I | cut -d\  -f1)
 hst=( `hostname` )
