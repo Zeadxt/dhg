@@ -66,24 +66,56 @@ rm tools.sh
 clear
 
 clear
-echo "Add Domain for vmess/vless/trojan dll"
-echo " "
-read -rp "Input ur domain : " -e pp
-    if [ -z $pp ]; then
-        echo -e "
-        Nothing input for domain!
-        Then a random domain will be created"
-    else
-        echo "$pp" > /root/scdomain
+
+### Tambah domain
+
+function add_domain() {
+    echo "`cat /etc/banner`" | lolcat
+    echo -e "${red}    ♦️${NC} ${green} CUSTOM SETUP DOMAIN VPS     ${NC}"
+    echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+    echo "1. Use Domain From Script / Gunakan Domain Dari Script"
+    echo "2. Choose Your Own Domain / Pilih Domain Sendiri"
+    echo -e "${red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+    read -rp "Choose Your Domain Installation : " dom 
+    if test $dom -eq 1; then
+    clear
+    wget -q -O /root/cf "${URL}/cf" >/dev/null 2>&1
+    chmod +x /root/cf
+    bash /root/cf | tee /root/install.log
+    print_success "DomainAll"
+    elif test $dom -eq 2; then
+    read -rp "Enter Your Domain : " domen 
+    echo $domen > /root/domain
+    cp /root/domain /etc/xray/domain
+    else 
+    echo "Not Found Argument"
+    exit 1
+    fi
+    echo -e "${GREEN}Done!${NC}"
+    sleep 2
+    clear
+}
+
+
+
+#echo "Add Domain for vmess/vless/trojan dll"
+#echo " "
+#read -rp "Input ur domain : " -e pp
+#    if [ -z $pp ]; then
+#        echo -e "
+#        Nothing input for domain!
+#        Then a random domain will be created"
+#       else
+#        echo "$pp" > /root/scdomain
 	echo "$pp" > /etc/xray/scdomain
 	echo "$pp" > /etc/xray/domain
 	echo "$pp" > /etc/v2ray/domain
 	echo $pp > /root/domain
-        echo "IP=$pp" > /var/lib/scrz-prem/ipvps.conf
-    fi
-read -rp "Input ur ns-domain : " -e nsdomen
-echo "$nsdomen" > /etc/xray/nsdomain
-echo "$nsdomen" > /root/nsdomain
+ #       echo "IP=$pp" > /var/lib/scrz-prem/ipvps.conf
+#    fi
+#read -rp "Input ur ns-domain : " -e nsdomen
+#echo "$nsdomen" > /etc/xray/nsdomain
+#echo "$nsdomen" > /root/nsdomain
 clear
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
