@@ -14,24 +14,69 @@ dart=$(cat /etc/hosts | grep -w `hostname` | awk '{print $2}')
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-CEKEXPIRED () {
-    today=$(date -d +1day +%Y-%m-%d)
-    Exp1=$(curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/ip | grep $MYIP | awk '{print $3}')
-    if [[ $today < $Exp1 ]]; then
-    echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+BURIQ () {
+    curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/main/ip > /root/tmp
+    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
+    for user in "${data[@]}"
+    do
+    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
+    d1=(`date -d "$exp" +%s`)
+    d2=(`date -d "$biji" +%s`)
+    exp2=$(( (d1 - d2) / 86400 ))
+    if [[ "$exp2" -le "0" ]]; then
+    echo $user > /etc/.$user.ini
     else
-    echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
-    exit 0
+    rm -f /etc/.$user.ini > /dev/null 2>&1
+    fi
+    done
+    rm -f /root/tmp
+}
+
+MYIP=$(curl -sS ipv4.icanhazip.com)
+Name=$(curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/main/ip | grep $MYIP | awk '{print $2}')
+echo $Name > /usr/local/etc/.$Name.ini
+CekOne=$(cat /usr/local/etc/.$Name.ini)
+
+Bloman () {
+if [ -f "/etc/.$Name.ini" ]; then
+CekTwo=$(cat /etc/.$Name.ini)
+    if [ "$CekOne" = "$CekTwo" ]; then
+        res="Expired"
+    fi
+else
+res="Permission Accepted..."
 fi
 }
-IZIN=$(curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/main/ip | awk '{print $4}' | grep $MYIP)
-if [[ $MYIP = $IZIN ]]; then
-echo -e "\e[32mPermission Accepted...\e[0m"
-CEKEXPIRED
-else
-echo -e "\e[31mPermission Denied!\e[0m";
-exit 0
-fi
+
+PERMISSION () {
+    MYIP=$(curl -sS ipv4.icanhazip.com)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/main/ip | awk '{print $4}' | grep $MYIP)
+    if [ "$MYIP" = "$IZIN" ]; then
+    Bloman
+    else
+    res="Permission Denied!"
+    fi
+    BURIQ
+}
+
+#CEKEXPIRED () {
+#    today=$(date -d +1day +%Y-%m-%d)
+#    Exp1=$(curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/ip | grep $MYIP | awk '{print $3}')
+#    if [[ $today < $Exp1 ]]; then
+#    echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+#    else
+#    echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
+#    exit 0
+#fi
+#}
+#IZIN=$(curl -sS https://raw.githubusercontent.com/Zeadxt/kzl/main/ip | awk '{print $4}' | grep $MYIP)
+#if [[ $MYIP = $IZIN ]]; then
+#echo -e "\e[32mPermission Accepted...\e[0m"
+#CEKEXPIRED
+#else
+#echo -e "\e[31mPermission Denied!\e[0m";
+#exit 0
+#fi
 clear
 
 if [[ "$hst" != "$dart" ]]; then
