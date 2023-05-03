@@ -8,8 +8,8 @@ apt install jq curl -y
 echo "SILAHKAN MASUKKAN 4 KARAKTER UNIK"
 sub=$(</dev/urandom tr -dc a-z | head -c4)
 clear
-DOMAIN=zeaking.xyz
-SUB_DOMAIN=${sub}.zeaking.xyz
+DOMAIN=freetunnel.biz.id
+SUB_DOMAIN=${sub}.freetunnel.biz.id
 CF_ID=pribadi.no99@gmail.com
 CF_KEY=e706e0ce65fb5c6e233c233e6e2e6614d4aec
 set -euo pipefail
