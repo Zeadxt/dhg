@@ -31,7 +31,7 @@ wget -q -O /usr/bin/usern "https://${URL}/Menu/usern.sh"
 wget -q -O /usr/bin/menu "https://${URL}/Menu/menu.sh"
 #lain-lain
 wget -q -O /usr/bin/add-host "https://${URL}/Menu/Lain/add-host.sh"
-wget -q -O /usr/bin/domain "https://${URL}/domain"
+wget -q -O /usr/bin/domaingratis "https://${URL}/domaingratis"
 wget -q -O /usr/bin/cek-bandwidth "https://${URL}/Menu/Lain/cek-bandwidth.sh"
 wget -q -O /usr/bin/updatsc "https://${URL}/update.sh"
 wget -q -O /usr/bin/clearlog "https://${URL}/Menu/Lain/clearlog.sh"
